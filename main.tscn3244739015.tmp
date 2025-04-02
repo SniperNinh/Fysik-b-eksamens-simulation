@@ -74,8 +74,6 @@ z_index = 1
 position = Vector2(195, -141)
 script = ExtResource("1_h2yge")
 stiffness = 10.0
-render_debug = true
-render_line = false
 metadata/_custom_type_script = "uid://b2shq2gjd4fvt"
 
 [node name="RopeRendererLine2D" type="Line2D" parent="climbers_rope"]
