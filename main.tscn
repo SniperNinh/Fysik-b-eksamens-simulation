@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5fku3uluao8s"]
+
+[ext_resource type="Script" uid="uid://b2shq2gjd4fvt" path="res://addons/ropesim/Rope.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://ja84ed2uhl8o" path="res://icon.svg" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://dfppmnngy2wx4" path="res://addons/ropesim/RopeRendererLine2D.gd" id="2_lquwl"]
+[ext_resource type="Script" uid="uid://le5eq0rbqw6s" path="res://hobbit.gd" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://1xluodkpnre3" path="res://addons/ropesim/RopeHandle.gd" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://bivhatmtnccb8" path="res://box.tscn" id="6_7mycd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Rope" type="Node2D" parent="."]
+position = Vector2(-100, 153)
+script = ExtResource("1_h2yge")
+metadata/_custom_type_script = "uid://b2shq2gjd4fvt"
+
+[node name="climbers_rope" type="Node2D" parent="."]
+position = Vector2(62, -112)
+script = ExtResource("1_h2yge")
+metadata/_custom_type_script = "uid://b2shq2gjd4fvt"
+
+[node name="RopeRendererLine2D" type="Line2D" parent="climbers_rope"]
+points = PackedVector2Array(0, 0, 1.66296, 11.0634, 3.40556, 22.0417, 5.26598, 32.9009, 7.25677, 43.6163, 9.37999, 54.1702, 11.6345, 64.5496, 14.0176, 74.7453, 16.5254, 84.751, 19.1526, 94.5628, 21.8929, 104.18)
+script = ExtResource("2_lquwl")
+metadata/_custom_type_script = "uid://dfppmnngy2wx4"
+metadata/_edit_lock_ = true
+
+[node name="hobbit" type="CharacterBody2D" parent="."]
+position = Vector2(94, 105)
+script = ExtResource("3_lquwl")
+
+[node name="Icon" type="Sprite2D" parent="hobbit"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="RopeHandle" type="Marker2D" parent="hobbit"]
+position = Vector2(43, 0)
+script = ExtResource("4_1bvp3")
+rope_path = NodePath("../../climbers_rope")
+metadata/_custom_type_script = "uid://1xluodkpnre3"
+metadata/_edit_lock_ = true
+
+[node name="dwarf" type="CharacterBody2D" parent="."]
+position = Vector2(-143, 153)
+
+[node name="Icon" type="Sprite2D" parent="dwarf"]
+modulate = Color(1, 0.258824, 1, 1)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="RopeHandle" type="Marker2D" parent="dwarf"]
+position = Vector2(43, 0)
+script = ExtResource("4_1bvp3")
+rope_path = NodePath("../../climbers_rope")
+metadata/_custom_type_script = "uid://1xluodkpnre3"
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="box_root" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(0, 270)
+scale = Vector2(9.355, 1)
+metadata/_edit_lock_ = true
+
+[node name="box_root2" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(316, 78)
+scale = Vector2(1, 7.29)
+
+[node name="box_root3" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(229, -176)
+rotation = -1.05941
+scale = Vector2(1.095, 0.34)
+
+[node name="Icon2" type="Sprite2D" parent="box_root3"]
+position = Vector2(-51.8875, 2.71548)
+scale = Vector2(-0.2, 0.898904)
+texture = ExtResource("2_1bvp3")
+
+[node name="RopeHandle" type="Marker2D" parent="box_root3"]
+position = Vector2(-27.4105, -1.05029)
+rotation = 1.39828
+scale = Vector2(2.60356, 1.645)
+skew = -0.892903
+script = ExtResource("4_1bvp3")
+metadata/_custom_type_script = "uid://1xluodkpnre3"
